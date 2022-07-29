@@ -18,8 +18,8 @@ import (
 )
 
 func main() {
-    router := prmrtr.NewRouter()
-    router.HandleFunc("/user/:id", func(w http.ResponseWriter, r *http.Request) {
+	router := prmrtr.NewRouter()
+	router.HandleFunc("/user/:id", func(w http.ResponseWriter, r *http.Request) {
 		// will match /user/12 but will also match /user/test since there is currently no way to
 		// declare data types per parameter
 		vars := prmrtr.Vars(r)
@@ -30,7 +30,7 @@ func main() {
 		}
 		// ...
 	})
-    router.HandleFunc("/user/name/:username", func(w http.ResponseWriter, r *http.Request) {
+	router.HandleFunc("/user/name/:username", func(w http.ResponseWriter, r *http.Request) {
 		// will match /user/name/someUserName
 		vars := prmrtr.Vars(r)
 		username, ok := vars.String("username")
@@ -44,11 +44,11 @@ func main() {
 	// using SubRouters
 	todoRouter := router.SubRouter("/todos")
 	todoRouter.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-        // resolves to /items/
+		// resolves to /items/
 		// ...
 	})
 	todoRouter.HandleFunc("/:id", func(w http.ResponseWriter, r *http.Request) {
-        // resolves to /items/:id
+		// resolves to /items/:id
 		// ...
 	})
 	
