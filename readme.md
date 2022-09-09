@@ -44,11 +44,11 @@ func main() {
 	// using SubRouters
 	todoRouter := router.SubRouter("/todos")
 	todoRouter.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		// resolves to /items/
+		// resolves to /todos/
 		// ...
 	})
 	todoRouter.HandleFunc("/:id", func(w http.ResponseWriter, r *http.Request) {
-		// resolves to /items/:id
+		// resolves to /todos/:id
 		// ...
 	})
 	
